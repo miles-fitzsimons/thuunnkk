@@ -1,0 +1,9 @@
+.list {
+  list-style-type: upper-roman;
+  margin: 0;
+  background-color: red;
+
+  .item {
+    color: rgb(86, 197, 35);
+  }
+}

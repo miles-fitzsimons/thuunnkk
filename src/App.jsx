@@ -4,6 +4,7 @@ import { fetchItems } from "./actions/actions";
 
 import List from "./List";
 import Header from "./Header";
+import Button from "./Button";
 
 import "./App.scss";
 
@@ -34,7 +35,15 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
-        <main className="main">{this.renderMain()}</main>
+        <main className="main">
+          {this.renderMain()}
+          <Button />
+
+          {/* <div className="button" onClick={() => {}}>
+            Next Page
+          </div> */}
+          {/* onClick --> navigate to page2 */}
+        </main>
       </div>
     );
   }

@@ -10,11 +10,12 @@ import "./App.scss";
 
 class App extends Component {
   componentWillMount = () => {
-    this.props.fetchItems();
+    console.log("COMP MOUNT", this.props.history.push);
+    this.props.fetchItems(this.props.history.push);
   };
   renderMain = () => {
     if (this.props.error) {
-      return <h1>Loading</h1>;
+      return <h1>{this.props.error}</h1>;
     }
 
     if (this.props.isLoading) {
@@ -32,17 +33,13 @@ class App extends Component {
   };
 
   render() {
+    console.log("PROP", this.props);
     return (
       <div className="app">
         <Header />
         <main className="main">
           {this.renderMain()}
           <Button />
-
-          {/* <div className="button" onClick={() => {}}>
-            Next Page
-          </div> */}
-          {/* onClick --> navigate to page2 */}
         </main>
       </div>
     );

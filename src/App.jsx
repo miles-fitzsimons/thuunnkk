@@ -10,9 +10,9 @@ import "./App.scss";
 
 class App extends Component {
   componentWillMount = () => {
-    console.log("COMP MOUNT", this.props.history.push);
     this.props.fetchItems(this.props.history.push);
   };
+
   renderMain = () => {
     if (this.props.error) {
       return <h1>{this.props.error}</h1>;
@@ -33,7 +33,6 @@ class App extends Component {
   };
 
   render() {
-    console.log("PROP", this.props);
     return (
       <div className="app">
         <Header />
@@ -53,7 +52,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchItems: () => dispatch(fetchItems())
+  fetchItems: redirect => dispatch(fetchItems(redirect))
 });
 
 export default connect(

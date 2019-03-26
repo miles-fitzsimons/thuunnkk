@@ -11,7 +11,6 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-  console.log("REDUCER", action);
   switch (action.type) {
     case FETCH_ITEMS_BEGIN:
       return {

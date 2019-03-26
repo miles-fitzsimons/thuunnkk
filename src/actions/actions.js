@@ -1,21 +1,14 @@
 import { get } from "axios";
-import { push } from "react-router-redux";
 
-// import { browserHistory } from "react-router";
-
-export const fetchItems = () => dispatch => {
+export const fetchItems = redirect => dispatch => {
   dispatch(fetchItemsBegin());
 
   return get("http://localhost:3001/db")
     .then(res => res.data.items)
     .then(items => {
       wait(2000);
-      console.log("PUSH", push);
       dispatch(fetchItemsSuccess(items));
-      // browserHistory.push("/step2");
-      // push("/page2/");
-
-      dispatch(push("/page2/"));
+      redirect("/page2/");
       return items;
     })
     .catch(err => {
